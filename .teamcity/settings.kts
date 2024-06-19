@@ -73,6 +73,10 @@ project {
         }
     }
 
+    params {
+        text("meow", "meow", description = "MeowMeow!")
+    }
+
     subProject(ChildProject)
 }
 
@@ -116,6 +120,10 @@ object ChildProject : Project({
     vcsRoot(ChildProject_HttpsGithubComSocksDevilTeamcityAwsLambdaPluginExampleRefsHeadsMain)
 
     buildType(ChildProject_Build)
+
+    params {
+        text("meow", "meow", description = "No Meow Meow!")
+    }
 })
 
 object ChildProject_Build : BuildType({
