@@ -33,7 +33,7 @@ changeProject(DslContext.projectId) {
                 type = "OAuthProvider"
                 id = "PROJECT_EXT_8"
                 param("secure:clientKeyData", "credentialsJSON:43b46ece-15a7-4621-a271-7d2b33e9e356")
-                param("displayName", "Kubernetes Connection")
+                param("displayName", "Certificate & Key")
                 param("secure:clientCertData", "credentialsJSON:87a6537c-cb8f-4684-b44d-e0ea183e9fa1")
                 param("apiServerUrl", "meow")
                 param("authStrategy", "client-cert")
