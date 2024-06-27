@@ -2,6 +2,7 @@ package patches.projects
 
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.Project
+import jetbrains.buildServer.configs.kotlin.projectFeatures.kubernetesConnection
 import jetbrains.buildServer.configs.kotlin.ui.*
 
 /*
@@ -18,94 +19,82 @@ changeProject(DslContext.projectId) {
 
     features {
         add {
-            feature {
-                type = "OAuthProvider"
+            kubernetesConnection {
                 id = "PROJECT_EXT_10"
-                param("eksClusterName", "cluster-name")
-                param("secure:eksSecretKey", "credentialsJSON:3507800f-ae64-49f1-bbb5-0a4deec5c7b3")
-                param("displayName", "EKS")
-                param("apiServerUrl", "meow")
-                param("authStrategy", "eks")
-                param("namespace", "meow")
-                param("eksAccessId", "id")
-                param("providerType", "KubernetesConnection")
+                name = "EKS"
+                apiServerUrl = "meow"
+                namespace = "meow"
+                authStrategy = eks {
+                    accessId = "id"
+                    secretKey = "credentialsJSON:3507800f-ae64-49f1-bbb5-0a4deec5c7b3"
+                    clusterName = "cluster-name"
+                }
             }
         }
         add {
-            feature {
-                type = "OAuthProvider"
+            kubernetesConnection {
                 id = "PROJECT_EXT_11"
-                param("displayName", "Username and Password")
+                name = "Username and Password"
+                apiServerUrl = "meow"
+                namespace = "meow"
                 param("secure:password", "credentialsJSON:aaef5e7e-5a51-427c-b0ea-3af364cacedd")
-                param("apiServerUrl", "meow")
                 param("authStrategy", "user-passwd")
-                param("namespace", "meow")
-                param("providerType", "KubernetesConnection")
                 param("username", "username")
             }
         }
         add {
-            feature {
-                type = "OAuthProvider"
+            kubernetesConnection {
                 id = "PROJECT_EXT_12"
-                param("displayName", "Default Service Account")
-                param("apiServerUrl", "meow")
+                name = "Default Service Account"
+                apiServerUrl = "meow"
+                namespace = "meow"
                 param("authStrategy", "service-account")
-                param("namespace", "meow")
-                param("providerType", "KubernetesConnection")
             }
         }
         add {
-            feature {
-                type = "OAuthProvider"
+            kubernetesConnection {
                 id = "PROJECT_EXT_13"
+                name = "Open ID"
+                apiServerUrl = "meow"
+                namespace = "meow"
                 param("secure:oidcRefreshToken", "credentialsJSON:0bb3f85a-7ff4-474e-9c14-8da47099595a")
                 param("oidcClientId", "clientId")
-                param("displayName", "Open ID")
                 param("idpIssuerUrl", "idpurl")
-                param("apiServerUrl", "meow")
                 param("authStrategy", "oidc")
-                param("namespace", "meow")
                 param("secure:oidcClientSecret", "credentialsJSON:612f3414-2b25-41ec-9520-12c9669d1f85")
-                param("providerType", "KubernetesConnection")
             }
         }
         add {
-            feature {
-                type = "OAuthProvider"
+            kubernetesConnection {
                 id = "PROJECT_EXT_7"
-                param("displayName", "Unauthorized")
-                param("apiServerUrl", "meow")
-                param("authStrategy", "unauthorized")
-                param("namespace", "meow")
-                param("providerType", "KubernetesConnection")
+                name = "Unauthorized"
+                apiServerUrl = "meow"
+                namespace = "meowmeow"
+                authStrategy = unauthorized()
             }
         }
         add {
-            feature {
-                type = "OAuthProvider"
+            kubernetesConnection {
                 id = "PROJECT_EXT_8"
+                name = "Certificate & Key"
+                apiServerUrl = "meow"
+                namespace = "meow"
                 param("secure:clientKeyData", "credentialsJSON:43b46ece-15a7-4621-a271-7d2b33e9e356")
-                param("displayName", "Certificate & Key")
                 param("secure:clientCertData", "credentialsJSON:87a6537c-cb8f-4684-b44d-e0ea183e9fa1")
-                param("apiServerUrl", "meow")
                 param("authStrategy", "client-cert")
-                param("namespace", "meow")
-                param("providerType", "KubernetesConnection")
             }
         }
         add {
-            feature {
-                type = "OAuthProvider"
+            kubernetesConnection {
                 id = "PROJECT_EXT_9"
-                param("eksAssumeIAMRole", "true")
-                param("eksClusterName", "cluster-name")
-                param("displayName", "EKS with server instance profile")
-                param("apiServerUrl", "meow")
-                param("authStrategy", "eks")
-                param("eksIAMRoleArn", "arn")
-                param("eksUseInstanceProfile", "true")
-                param("providerType", "KubernetesConnection")
+                name = "EKS with server instance profile"
+                apiServerUrl = "meow"
+                authStrategy = eks {
+                    eksUseInstanceProfile = true
+                    assumeIamRole = true
+                    iamRoleArn = "arn"
+                    clusterName = "cluster-name"
+                }
             }
         }
     }
