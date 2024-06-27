@@ -20,6 +20,20 @@ changeProject(DslContext.projectId) {
         add {
             feature {
                 type = "OAuthProvider"
+                id = "PROJECT_EXT_10"
+                param("eksClusterName", "cluster-name")
+                param("secure:eksSecretKey", "credentialsJSON:3507800f-ae64-49f1-bbb5-0a4deec5c7b3")
+                param("displayName", "EKS")
+                param("apiServerUrl", "meow")
+                param("authStrategy", "eks")
+                param("namespace", "meow")
+                param("eksAccessId", "id")
+                param("providerType", "KubernetesConnection")
+            }
+        }
+        add {
+            feature {
+                type = "OAuthProvider"
                 id = "PROJECT_EXT_7"
                 param("displayName", "Unauthorized")
                 param("apiServerUrl", "meow")
