@@ -58,6 +58,21 @@ changeProject(DslContext.projectId) {
         add {
             feature {
                 type = "OAuthProvider"
+                id = "PROJECT_EXT_13"
+                param("secure:oidcRefreshToken", "credentialsJSON:0bb3f85a-7ff4-474e-9c14-8da47099595a")
+                param("oidcClientId", "clientId")
+                param("displayName", "Open ID")
+                param("idpIssuerUrl", "idpurl")
+                param("apiServerUrl", "meow")
+                param("authStrategy", "oidc")
+                param("namespace", "meow")
+                param("secure:oidcClientSecret", "credentialsJSON:612f3414-2b25-41ec-9520-12c9669d1f85")
+                param("providerType", "KubernetesConnection")
+            }
+        }
+        add {
+            feature {
+                type = "OAuthProvider"
                 id = "PROJECT_EXT_7"
                 param("displayName", "Unauthorized")
                 param("apiServerUrl", "meow")
