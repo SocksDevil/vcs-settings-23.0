@@ -34,6 +34,19 @@ changeProject(DslContext.projectId) {
         add {
             feature {
                 type = "OAuthProvider"
+                id = "PROJECT_EXT_11"
+                param("displayName", "Username and Password")
+                param("secure:password", "credentialsJSON:aaef5e7e-5a51-427c-b0ea-3af364cacedd")
+                param("apiServerUrl", "meow")
+                param("authStrategy", "user-passwd")
+                param("namespace", "meow")
+                param("providerType", "KubernetesConnection")
+                param("username", "username")
+            }
+        }
+        add {
+            feature {
+                type = "OAuthProvider"
                 id = "PROJECT_EXT_7"
                 param("displayName", "Unauthorized")
                 param("apiServerUrl", "meow")
