@@ -41,5 +41,19 @@ changeProject(DslContext.projectId) {
                 param("providerType", "KubernetesConnection")
             }
         }
+        add {
+            feature {
+                type = "OAuthProvider"
+                id = "PROJECT_EXT_9"
+                param("eksAssumeIAMRole", "true")
+                param("eksClusterName", "cluster-name")
+                param("displayName", "EKS with server instance profile")
+                param("apiServerUrl", "meow")
+                param("authStrategy", "eks")
+                param("eksIAMRoleArn", "arn")
+                param("eksUseInstanceProfile", "true")
+                param("providerType", "KubernetesConnection")
+            }
+        }
     }
 }
