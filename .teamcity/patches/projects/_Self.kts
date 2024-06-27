@@ -15,4 +15,18 @@ changeProject(DslContext.projectId) {
             param("test", "meow")
         }
     }
+
+    features {
+        add {
+            feature {
+                type = "OAuthProvider"
+                id = "PROJECT_EXT_7"
+                param("displayName", "Kubernetes Connection")
+                param("apiServerUrl", "meow")
+                param("authStrategy", "unauthorized")
+                param("namespace", "meow")
+                param("providerType", "KubernetesConnection")
+            }
+        }
+    }
 }
