@@ -32,7 +32,7 @@ changeProject(DslContext.projectId) {
                 caCertData = "credentialsJSON:c77bc0a7-f461-4ca8-959b-ee5c8f6389b6"
                 namespace = "executor-pods"
                 authStrategy = token {
-                    token = "credentialsJSON:d4bb9301-5da9-46e8-8f31-8b143d054c5f"
+                    token = "credentialsJSON:fa92592e-ec16-4543-add0-1cdd4de87e5e"
                 }
             }
         }
