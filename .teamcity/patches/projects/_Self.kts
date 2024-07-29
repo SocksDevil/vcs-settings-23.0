@@ -21,6 +21,7 @@ changeProject(DslContext.projectId) {
                 agentPoolId = "-2"
                 podSpecification = runContainer {
                     dockerImage = "jetbrains/teamcity-agent"
+                    command = "/run-services.sh && sleep 100000000"
                     pullPolicy = KubernetesCloudImage.PullPolicy.ALWAYS
                 }
             }
