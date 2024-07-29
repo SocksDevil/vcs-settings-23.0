@@ -1,6 +1,7 @@
 package patches.projects
 
 import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.KubernetesCloudImage
 import jetbrains.buildServer.configs.kotlin.Project
 import jetbrains.buildServer.configs.kotlin.kubernetesCloudImage
 import jetbrains.buildServer.configs.kotlin.kubernetesCloudProfile
@@ -20,6 +21,7 @@ changeProject(DslContext.projectId) {
                 agentPoolId = "-2"
                 podSpecification = runContainer {
                     dockerImage = "jetbrains/teamcity-agent"
+                    pullPolicy = KubernetesCloudImage.PullPolicy.ALWAYS
                 }
             }
         }
