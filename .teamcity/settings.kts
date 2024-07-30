@@ -88,7 +88,7 @@ project {
             id = "PROJECT_EXT_18"
             profileId = "kube-2"
             agentPoolId = "-2"
-            agentNamePrefix = "teamcity-agent-"
+            agentNamePrefix = "teamcity-agent"
 
             podSpecification = customTemplate {
                 customPod = """
