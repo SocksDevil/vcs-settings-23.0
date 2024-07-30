@@ -88,11 +88,18 @@ project {
             id = "PROJECT_EXT_18"
             profileId = "kube-2"
             agentPoolId = "-2"
-            podSpecification = runContainer {
-                dockerImage = "jetbrains/teamcity-agent"
-                command = "sleep"
-                arguments = "10000000000"
-                pullPolicy = KubernetesCloudImage.PullPolicy.ALWAYS
+
+            podSpecification = customTemplate {
+                customPod = """
+                    ---
+                    apiVersion: v1
+                    kind: Pod
+                    spec:
+                      containers:
+                        - name: agent
+                          image: jetbrains/teamcity-agent
+                          imagePullPolicy: Always
+                """.trimIndent()
             }
         }
         kubernetesConnection {
