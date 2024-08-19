@@ -18,6 +18,9 @@ changeProject(DslContext.projectId) {
         remove {
             param("test", "meow")
         }
+        add {
+            text("testMeow", "", description = "meowmeow", allowEmpty = true)
+        }
     }
 
     features {
