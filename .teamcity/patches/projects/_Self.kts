@@ -2,6 +2,8 @@ package patches.projects
 
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.Project
+import jetbrains.buildServer.configs.kotlin.kubernetesCloudImage
+import jetbrains.buildServer.configs.kotlin.kubernetesCloudProfile
 import jetbrains.buildServer.configs.kotlin.projectFeatures.KubernetesExecutor
 import jetbrains.buildServer.configs.kotlin.projectFeatures.kubernetesExecutor
 import jetbrains.buildServer.configs.kotlin.ui.*
@@ -13,6 +15,26 @@ accordingly, and delete the patch script.
 */
 changeProject(DslContext.projectId) {
     features {
+        remove {
+            kubernetesCloudImage {
+                id = "PROJECT_EXT_18"
+                profileId = "kube-2"
+                agentPoolId = "-2"
+                agentNamePrefix = "teamcity-agent"
+                podSpecification = customTemplate {
+                    customPod = """
+                        ---
+                        apiVersion: v1
+                        kind: Pod
+                        spec:
+                          containers:
+                            - name: agent
+                              image: jetbrains/teamcity-agent
+                              imagePullPolicy: Always
+                    """.trimIndent()
+                }
+            }
+        }
         val feature1 = find<KubernetesExecutor> {
             kubernetesExecutor {
                 id = "PROJECT_EXT_4"
@@ -33,6 +55,20 @@ changeProject(DslContext.projectId) {
         feature1.apply {
             param("profileServerUrl", "https://teamcity.evielution.me/bs")
             param("system.cloud.profile_id", "PROJECT_EXT_4")
+        }
+        remove {
+            kubernetesCloudProfile {
+                id = "kube-2"
+                name = "K8S"
+                terminateAfterBuild = true
+                terminateIdleMinutes = 30
+                apiServerURL = "https://6c60846089ad8c095bed3b18ff6d84a0.gr7.eu-west-1.eks.amazonaws.com"
+                caCertData = "credentialsJSON:c77bc0a7-f461-4ca8-959b-ee5c8f6389b6"
+                namespace = "executor-pods"
+                authStrategy = token {
+                    token = "credentialsJSON:fa92592e-ec16-4543-add0-1cdd4de87e5e"
+                }
+            }
         }
     }
 }
