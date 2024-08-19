@@ -19,7 +19,9 @@ changeProject(DslContext.projectId) {
             param("test", "meow")
         }
         add {
-            text("testMeow", "", description = "meowmeow", allowEmpty = true)
+            text("testMeow", """
+                meow?
+            """.trimIndent(), description = "meowmeow", allowEmpty = true)
         }
     }
 
