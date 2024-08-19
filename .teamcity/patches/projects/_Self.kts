@@ -14,6 +14,12 @@ To apply the patch, change the root project
 accordingly, and delete the patch script.
 */
 changeProject(DslContext.projectId) {
+    params {
+        remove {
+            param("test", "meow")
+        }
+    }
+
     features {
         remove {
             kubernetesCloudImage {
