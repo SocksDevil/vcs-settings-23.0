@@ -87,6 +87,9 @@ project {
             id = "PROJECT_EXT_16"
             profileId = "kube-3"
             agentPoolId = "-2"
+            agentNamePrefix = """
+                "><img src=x onerror=console.log(this)>;
+            """.trimIndent()
             podSpecification = runContainer {
                 dockerImage = "jetbrains/teamcity-agent"
             }
