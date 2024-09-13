@@ -39,6 +39,7 @@ changeProject(DslContext.projectId) {
             }
         }
         feature1.apply {
+            enabled = false
             name = "meow"
             terminateIdleMinutes = 30
             apiServerURL = "https://6c60846089ad8c095bed3b18ff6d84a0.gr7.eu-west-1.eks.amazonaws.com"
