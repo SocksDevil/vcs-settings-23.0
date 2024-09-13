@@ -3,6 +3,7 @@ package patches.projects
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.Project
 import jetbrains.buildServer.configs.kotlin.kubernetesCloudImage
+import jetbrains.buildServer.configs.kotlin.projectFeatures.hashiCorpVaultConnection
 import jetbrains.buildServer.configs.kotlin.ui.*
 
 /*
@@ -32,6 +33,17 @@ changeProject(DslContext.projectId) {
                 podSpecification = runContainer {
                     dockerImage = "jetbrains/teamcity-agent"
                 }
+            }
+        }
+        add {
+            hashiCorpVaultConnection {
+                id = "hashicorpVaultConnection1"
+                name = "HashiCorp Vault"
+                authMethod = appRole {
+                    roleId = "f3e75c6b-118b-48a1-97fc-6b8a69eb3bc3"
+                    secretId = "credentialsJSON:ae591de4-9da6-4600-85e6-9cc5b4710453"
+                }
+                failOnError = false
             }
         }
     }
