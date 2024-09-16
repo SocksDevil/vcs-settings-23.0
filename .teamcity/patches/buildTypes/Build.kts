@@ -41,5 +41,12 @@ changeBuildType(RelativeId("Build")) {
                 param("teamcity.kubernetes.executor.pull.policy", "IfNotPresent")
             }
         }
+        insert(2) {
+            script {
+                id = "simpleRunner_1"
+                scriptContent = """echo "##teamcity[setParameter name='env.TEST' value='test']""""
+                param("teamcity.kubernetes.executor.pull.policy", "IfNotPresent")
+            }
+        }
     }
 }
