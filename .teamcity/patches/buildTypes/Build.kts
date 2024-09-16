@@ -51,8 +51,8 @@ changeBuildType(RelativeId("Build")) {
             script {
                 id = "simpleRunner"
                 scriptContent = """
-                    echo '%vaultParam%' > meow.txt
-                    echo '%TEST%' > meow.txt
+                    echo '%vaultParam%' >> meow.txt
+                    echo '%TEST%' >> meow.txt
                 """.trimIndent()
                 param("teamcity.kubernetes.executor.pull.policy", "IfNotPresent")
             }
