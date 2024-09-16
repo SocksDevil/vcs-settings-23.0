@@ -24,6 +24,9 @@ changeBuildType(RelativeId("Build")) {
                 query = "secret/data/path!/meias"
             }
         }
+        add {
+            param("TEST", "")
+        }
     }
 
     expectSteps {
