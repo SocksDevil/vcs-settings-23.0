@@ -34,17 +34,17 @@ changeBuildType(RelativeId("Build")) {
         }
     }
     steps {
-        insert(1) {
+        insert(0) {
             script {
-                id = "simpleRunner"
-                scriptContent = "echo '%vaultParam%' > meow.txt"
+                id = "simpleRunner_1"
+                scriptContent = """echo "##teamcity[setParameter name='env.TEST' value='test']""""
                 param("teamcity.kubernetes.executor.pull.policy", "IfNotPresent")
             }
         }
         insert(2) {
             script {
-                id = "simpleRunner_1"
-                scriptContent = """echo "##teamcity[setParameter name='env.TEST' value='test']""""
+                id = "simpleRunner"
+                scriptContent = "echo '%vaultParam%' > meow.txt"
                 param("teamcity.kubernetes.executor.pull.policy", "IfNotPresent")
             }
         }
