@@ -37,7 +37,7 @@ changeBuildType(RelativeId("Build")) {
         insert(0) {
             script {
                 id = "simpleRunner_1"
-                scriptContent = """echo "##teamcity[setParameter name='env.TEST' value='test']""""
+                scriptContent = """echo "##teamcity[setParameter name='TEST' value='test']""""
                 param("teamcity.kubernetes.executor.pull.policy", "IfNotPresent")
             }
         }
