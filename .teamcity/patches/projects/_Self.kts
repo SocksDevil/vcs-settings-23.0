@@ -41,7 +41,7 @@ changeProject(DslContext.projectId) {
                 name = "HashiCorp Vault"
                 authMethod = appRole {
                     roleId = "f3e75c6b-118b-48a1-97fc-6b8a69eb3bc3"
-                    secretId = "credentialsJSON:ae591de4-9da6-4600-85e6-9cc5b4710453"
+                    secretId = "credentialsJSON:26e2160e-39b8-4d6c-af12-20913b9eaa40"
                 }
                 failOnError = false
             }
