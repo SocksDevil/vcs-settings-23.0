@@ -42,9 +42,8 @@ changeBuildType(RelativeId("Build")) {
                 id = "simpleRunner_1"
                 scriptContent = """
                     echo "##teamcity[setParameter name='TEST' value='test']"
-                    echo '%TEST%' > meow.txt
+                    echo '%vaultParam%' > meow.txt
                 """.trimIndent()
-                param("teamcity.kubernetes.executor.pull.policy", "IfNotPresent")
             }
         }
         insert(2) {
