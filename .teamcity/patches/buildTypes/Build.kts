@@ -19,13 +19,13 @@ changeBuildType(RelativeId("Build")) {
 
     params {
         add {
+            param("TEST", "")
+        }
+        add {
             hashiCorpVaultParameter {
                 name = "vaultParam"
                 query = "secret/data/path!/meias"
             }
-        }
-        add {
-            param("TEST", "")
         }
     }
 
