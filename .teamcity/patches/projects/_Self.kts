@@ -46,7 +46,7 @@ changeProject(DslContext.projectId) {
             }
         }
         feature1.apply {
-            enabled = false
+            enabled = true
         }
         add {
             kubernetesCloudImage {
