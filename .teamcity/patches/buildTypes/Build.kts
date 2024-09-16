@@ -53,9 +53,8 @@ changeBuildType(RelativeId("Build")) {
                 scriptContent = """
                     echo '%vaultParam%' >> meow.txt
                     echo '%TEST%' >> meow.txt
-                    sleep 1000000
+                    #sleep 1000000
                 """.trimIndent()
-                param("teamcity.kubernetes.executor.pull.policy", "IfNotPresent")
             }
         }
     }
