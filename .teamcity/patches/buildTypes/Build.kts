@@ -25,7 +25,6 @@ changeBuildType(RelativeId("Build")) {
             hashiCorpVaultParameter {
                 name = "vaultParam"
                 query = "secret/data/path!/meias"
-                vaultId = "hashicorpVaultConnection1"
             }
         }
     }
