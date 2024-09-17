@@ -63,10 +63,10 @@ changeProject(DslContext.projectId) {
             hashiCorpVaultConnection {
                 id = "hashicorpVaultConnection1"
                 name = "HashiCorp Vault"
-                url = "https://many-socks-fetch.loca.lt"
+                url = "https://cuddly-ears-win.loca.lt"
                 authMethod = appRole {
                     roleId = "f3e75c6b-118b-48a1-97fc-6b8a69eb3bc3"
-                    secretId = "credentialsJSON:26e2160e-39b8-4d6c-af12-20913b9eaa40"
+                    secretId = "credentialsJSON:a90c9e97-f71b-4571-bfff-24f0eb0db85b"
                 }
                 failOnError = false
             }
