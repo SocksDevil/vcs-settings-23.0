@@ -3,6 +3,7 @@ package patches.projects
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.Project
 import jetbrains.buildServer.configs.kotlin.kubernetesCloudImage
+import jetbrains.buildServer.configs.kotlin.kubernetesCloudProfile
 import jetbrains.buildServer.configs.kotlin.projectFeatures.KubernetesExecutor
 import jetbrains.buildServer.configs.kotlin.projectFeatures.hashiCorpVaultConnection
 import jetbrains.buildServer.configs.kotlin.projectFeatures.kubernetesExecutor
@@ -48,14 +49,16 @@ changeProject(DslContext.projectId) {
         feature1.apply {
             enabled = true
         }
-        add {
-            kubernetesCloudImage {
-                id = "PROJECT_EXT_17"
-                profileId = "kube-3"
-                agentPoolId = "-2"
-                agentNamePrefix = ""
-                podSpecification = runContainer {
-                    dockerImage = "jetbrains/teamcity-agent"
+        remove {
+            kubernetesCloudProfile {
+                id = "kube-3"
+                name = "meow"
+                terminateIdleMinutes = 30
+                apiServerURL = "https://6c60846089ad8c095bed3b18ff6d84a0.gr7.eu-west-1.eks.amazonaws.com"
+                caCertData = "credentialsJSON:c77bc0a7-f461-4ca8-959b-ee5c8f6389b6"
+                namespace = "executor-pods"
+                authStrategy = token {
+                    token = "credentialsJSON:fa92592e-ec16-4543-add0-1cdd4de87e5e"
                 }
             }
         }
