@@ -20,6 +20,9 @@ changeBuildType(RelativeId("Build")) {
         add {
             param("TEST", "")
         }
+        add {
+            param("vaultParam", "meow")
+        }
     }
 
     expectSteps {
