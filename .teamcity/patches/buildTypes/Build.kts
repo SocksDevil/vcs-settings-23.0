@@ -3,7 +3,6 @@ package patches.buildTypes
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
-import jetbrains.buildServer.configs.kotlin.remoteParameters.hashiCorpVaultParameter
 import jetbrains.buildServer.configs.kotlin.ui.*
 
 /*
@@ -20,12 +19,6 @@ changeBuildType(RelativeId("Build")) {
     params {
         add {
             param("TEST", "")
-        }
-        add {
-            hashiCorpVaultParameter {
-                name = "vaultParam"
-                query = "secret/data/path!/meias"
-            }
         }
     }
 
