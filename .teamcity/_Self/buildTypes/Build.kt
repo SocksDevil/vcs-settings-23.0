@@ -27,6 +27,7 @@ object Build : BuildType({
                 echo "##teamcity[setParameter name='TEST' value='test']"
                 echo '%vaultParam%' > meow.txt
             """.trimIndent()
+            dockerImage = "jetbrains/teamcity-agent:2024.07.3-linux-sudo"
         }
         gradle {
             id = "gradle_runner"
