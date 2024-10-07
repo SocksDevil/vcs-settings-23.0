@@ -12,8 +12,10 @@ import jetbrains.buildServer.configs.kotlin.projectFeatures.kubernetesExecutor
 object Project : Project({
 
     vcsRoot(HttpsGithubComSocksDevilTeamcityAwsLambdaPluginExampleRefsHeadsMain)
+    vcsRoot(HttpsGithubComSocksDevilTeamcityAwsLambdaPluginExampleRefsHeadsMain1)
 
     buildType(Build)
+    buildType(ThisIsSupposedToBeAVeryLongNameToSeeIfICanBreakStuffUwuSlay)
 
     params {
         text("testMeow", "meow?", description = "meowmeow", allowEmpty = true)
