@@ -61,6 +61,16 @@ object Project : Project({
             }
         }
         kubernetesConnection {
+            id = "PROJECT_EXT_16"
+            name = "EKS JB Managed"
+            apiServerUrl = "https://1D9DE0392C8CFAC214189045F2125202.gr7.eu-west-1.eks.amazonaws.com"
+            caCertificate = "credentialsJSON:ffe4af77-1daf-4824-975f-a6778d5566fd"
+            namespace = "teamcity-cloud"
+            authStrategy = token {
+                token = "credentialsJSON:df987c3f-e01d-4a37-b75d-b270c95f2a2f"
+            }
+        }
+        kubernetesConnection {
             id = "PROJECT_EXT_3"
             name = "EKS Connection"
             apiServerUrl = "https://6c60846089ad8c095bed3b18ff6d84a0.gr7.eu-west-1.eks.amazonaws.com"
