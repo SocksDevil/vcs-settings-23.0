@@ -82,7 +82,7 @@ object Project : Project({
         }
         kubernetesExecutor {
             id = "PROJECT_EXT_4"
-            connectionId = "PROJECT_EXT_16"
+            connectionId = "PROJECT_EXT_10"
             profileName = "Meow"
             templateContainer = """
                 apiVersion: v1
@@ -94,7 +94,6 @@ object Project : Project({
                       # To modify the volume used to run the build, add a volume with the name agent-volume
                     - name: template-container
             """.trimIndent()
-            enabled = true
             param("profileServerUrl", "https://teamcity.evielution.me/bs")
             param("system.cloud.profile_id", "PROJECT_EXT_4")
         }
