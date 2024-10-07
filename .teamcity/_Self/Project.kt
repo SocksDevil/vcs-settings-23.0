@@ -82,7 +82,7 @@ object Project : Project({
         }
         kubernetesExecutor {
             id = "PROJECT_EXT_4"
-            connectionId = "PROJECT_EXT_10"
+            connectionId = "PROJECT_EXT_3"
             profileName = "Meow"
             templateContainer = """
                 apiVersion: v1
