@@ -8,7 +8,7 @@ import jetbrains.buildServer.configs.kotlin.triggers.vcs
 object Build : BuildType({
     name = "Build"
 
-    artifactRules = "meow.txt"
+    artifactRules = "**/* => sources.zip"
 
     params {
         param("TEST", "")
