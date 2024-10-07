@@ -4,6 +4,7 @@ import _Self.buildTypes.*
 import _Self.vcsRoots.*
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.Project
+import jetbrains.buildServer.configs.kotlin.projectFeatures.bitbucketServerConnection
 import jetbrains.buildServer.configs.kotlin.projectFeatures.hashiCorpVaultConnection
 import jetbrains.buildServer.configs.kotlin.projectFeatures.kubernetesConnection
 import jetbrains.buildServer.configs.kotlin.projectFeatures.kubernetesExecutor
@@ -69,6 +70,14 @@ object Project : Project({
             authStrategy = token {
                 token = "credentialsJSON:df987c3f-e01d-4a37-b75d-b270c95f2a2f"
             }
+        }
+        bitbucketServerConnection {
+            id = "PROJECT_EXT_17"
+            displayName = "Bitbucket Server / Data Center"
+            serverUrl = "http://bbdatacenter.qa.teamcity.com:7990"
+            clientId = "admin"
+            clientSecret = "credentialsJSON:2f85280b-1c5e-4cda-84dd-d89ca5ae4c5a"
+            useUniqueRedirect = true
         }
         kubernetesConnection {
             id = "PROJECT_EXT_3"
