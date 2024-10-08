@@ -9,6 +9,7 @@ object ThisIsSupposedToBeAVeryLongNameToSeeIfICanBreakStuffUwuSlay : BuildType({
 
     vcs {
         root(_Self.vcsRoots.HttpsBbdatacenterQaTeamcityComScmTestuserMailTestJavaMavenJunitGit)
+        root(_Self.vcsRoots.HttpsGithubComSocksDevilTeamcityAwsLambdaPluginExampleRefsHeadsMain)
     }
 
     steps {
