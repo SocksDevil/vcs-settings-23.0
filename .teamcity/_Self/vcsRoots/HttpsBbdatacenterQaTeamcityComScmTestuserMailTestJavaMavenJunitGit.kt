@@ -9,6 +9,6 @@ object HttpsBbdatacenterQaTeamcityComScmTestuserMailTestJavaMavenJunitGit : GitV
     branch = "refs/heads/master"
     authMethod = password {
         userName = "admin"
-        password = "credentialsJSON:2f85280b-1c5e-4cda-84dd-d89ca5ae4c5a"
+        password = "credentialsJSON:e04e7bdc-2a50-49a7-be64-7045d3df76dd"
     }
 })
