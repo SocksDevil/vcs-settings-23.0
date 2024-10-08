@@ -83,7 +83,7 @@ object Project : Project({
         }
         kubernetesConnection {
             id = "PROJECT_EXT_18"
-            name = "Kubernetes Connection"
+            name = "Limited Time Token"
             apiServerUrl = "https://6c60846089ad8c095bed3b18ff6d84a0.gr7.eu-west-1.eks.amazonaws.com"
             caCertificate = "credentialsJSON:c77bc0a7-f461-4ca8-959b-ee5c8f6389b6"
             namespace = "executor-pods"
