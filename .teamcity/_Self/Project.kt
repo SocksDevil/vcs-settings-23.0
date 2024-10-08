@@ -82,6 +82,16 @@ object Project : Project({
             useUniqueRedirect = true
         }
         kubernetesConnection {
+            id = "PROJECT_EXT_18"
+            name = "Kubernetes Connection"
+            apiServerUrl = "https://6c60846089ad8c095bed3b18ff6d84a0.gr7.eu-west-1.eks.amazonaws.com"
+            caCertificate = "credentialsJSON:c77bc0a7-f461-4ca8-959b-ee5c8f6389b6"
+            namespace = "executor-pods"
+            authStrategy = token {
+                token = "credentialsJSON:d73cd72a-d98b-4526-a1c6-ef21c24c1c5e"
+            }
+        }
+        kubernetesConnection {
             id = "PROJECT_EXT_3"
             name = "EKS Connection"
             apiServerUrl = "https://6c60846089ad8c095bed3b18ff6d84a0.gr7.eu-west-1.eks.amazonaws.com"
