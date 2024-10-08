@@ -9,8 +9,6 @@ object ThisIsSupposedToBeAVeryLongNameToSeeIfICanBreakStuffUwuSlay : BuildType({
 
     vcs {
         root(_Self.vcsRoots.HttpsBbdatacenterQaTeamcityComScmTestuserMailTestJavaMavenJunitGit)
-
-        checkoutMode = CheckoutMode.ON_SERVER
     }
 
     steps {
