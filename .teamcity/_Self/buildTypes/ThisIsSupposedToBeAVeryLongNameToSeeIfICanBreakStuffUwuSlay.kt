@@ -8,10 +8,6 @@ import jetbrains.buildServer.configs.kotlin.triggers.vcs
 object ThisIsSupposedToBeAVeryLongNameToSeeIfICanBreakStuffUwuSlay : BuildType({
     name = "this is supposed to be a very long name to see if I can break stuff uwu slay"
 
-    vcs {
-        root(_Self.vcsRoots.HttpsBbdatacenterQaTeamcityComScmTestuserMailTestJavaMavenJunitGit)
-    }
-
     steps {
         maven {
             id = "Maven2"
