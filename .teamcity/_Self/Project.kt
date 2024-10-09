@@ -116,7 +116,7 @@ object Project : Project({
                       # To modify the volume used to run the build, add a volume with the name agent-volume
                     - name: template-container
             """.trimIndent()
-            param("profileServerUrl", "https://teamcity.evielution.me/bs")
+            serverURL = "https://teamcity.evielution.me/bs"
             param("system.cloud.profile_id", "PROJECT_EXT_4")
         }
         kubernetesConnection {
