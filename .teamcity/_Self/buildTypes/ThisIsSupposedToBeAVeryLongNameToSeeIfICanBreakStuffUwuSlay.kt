@@ -21,7 +21,7 @@ object ThisIsSupposedToBeAVeryLongNameToSeeIfICanBreakStuffUwuSlay : BuildType({
         dotnetBuild {
             name = "dotnettest"
             id = "dotnettest"
-            param("teamcity.kubernetes.executor.container.image", "mcr.microsoft.com/dotnet/sdk:8.0")
+            param("teamcity.kubernetes.executor.container.image", "mcr.microsoft.com/dotnet/sdk:8.")
             param("teamcity.kubernetes.executor.pull.policy", "IfNotPresent")
         }
     }
