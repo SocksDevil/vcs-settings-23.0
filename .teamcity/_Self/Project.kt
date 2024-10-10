@@ -11,10 +11,12 @@ import jetbrains.buildServer.configs.kotlin.projectFeatures.kubernetesExecutor
 
 object Project : Project({
 
+    vcsRoot(HttpsGithubComSocksDevilTeamcityAwsLambdaPluginExampleRefsHeadsMain2)
     vcsRoot(HttpsGithubComSocksDevilTeamcityAwsLambdaPluginExampleRefsHeadsMain)
     vcsRoot(HttpsBbdatacenterQaTeamcityComScmTestuserMailTestJavaMavenJunitGit)
     vcsRoot(HttpsGithubComSocksDevilTeamcityAwsLambdaPluginExampleRefsHeadsMain1)
 
+    buildType(BuildParallelTests)
     buildType(Build)
     buildType(ThisIsSupposedToBeAVeryLongNameToSeeIfICanBreakStuffUwuSlay)
 
