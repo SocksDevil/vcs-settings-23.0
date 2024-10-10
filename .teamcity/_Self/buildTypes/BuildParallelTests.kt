@@ -1,6 +1,7 @@
 package _Self.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 object BuildParallelTests : BuildType({
@@ -8,6 +9,14 @@ object BuildParallelTests : BuildType({
 
     vcs {
         root(_Self.vcsRoots.HttpsGithubComSocksDevilTeamcityAwsLambdaPluginExampleRefsHeadsMain2)
+    }
+
+    steps {
+        gradle {
+            id = "gradle_runner"
+            tasks = "clean build"
+            gradleWrapperPath = ""
+        }
     }
 
     triggers {
