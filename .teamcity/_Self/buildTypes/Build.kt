@@ -27,6 +27,8 @@ object Build : BuildType({
                 echo "##teamcity[setParameter name='TEST' value='test']"
                 echo '%vaultParam%' > meow.txt
             """.trimIndent()
+            param("teamcity.kubernetes.executor.container.image", "python")
+            param("teamcity.kubernetes.executor.pull.policy", "IfNotPresent")
         }
         gradle {
             id = "gradle_runner"
