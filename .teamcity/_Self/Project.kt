@@ -117,7 +117,7 @@ object Project : Project({
                       # Please refrain from adding new containers, as those can't be added to your build
                       # To modify the volume used to run the build, add a volume with the name agent-volume
                     - name: template-container
-                      image: jetbrains/teamcity-agent:latest                                                                                                                                                                 │
+                      image: jetbrains/teamcity-agent:2024.07                                                                                                                                                               │
             """.trimIndent()
             serverURL = "https://teamcity.evielution.me/bs"
             param("system.cloud.profile_id", "PROJECT_EXT_4")
