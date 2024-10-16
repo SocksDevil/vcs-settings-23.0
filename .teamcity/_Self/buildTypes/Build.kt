@@ -8,8 +8,6 @@ import jetbrains.buildServer.configs.kotlin.triggers.vcs
 object Build : BuildType({
     name = "Build"
 
-    artifactRules = "**/* => sources.zip"
-
     params {
         param("TEST", "")
         param("vaultParam", "meow")
