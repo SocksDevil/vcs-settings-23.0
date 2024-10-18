@@ -48,4 +48,8 @@ object Build : BuildType({
         vcs {
         }
     }
+
+    requirements {
+        equals("parameter1", "value1")
+    }
 })
