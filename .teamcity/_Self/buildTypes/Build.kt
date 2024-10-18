@@ -50,6 +50,6 @@ object Build : BuildType({
     }
 
     requirements {
-        equals("parameter1", "value1")
+        equals("parameter1", "value2")
     }
 })
