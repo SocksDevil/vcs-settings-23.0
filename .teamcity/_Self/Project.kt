@@ -121,6 +121,7 @@ object Project : Project({
             """.trimIndent()
             serverURL = "https://teamcity.evielution.me/bs"
             param("system.cloud.profile_id", "PROJECT_EXT_4")
+            param("parametersAvailable", "parameter1=value1,parameter2=value2")
         }
         kubernetesConnection {
             id = "PROJECT_EXT_5"
