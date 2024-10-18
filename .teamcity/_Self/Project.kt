@@ -4,6 +4,7 @@ import _Self.buildTypes.*
 import _Self.vcsRoots.*
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.Project
+import jetbrains.buildServer.configs.kotlin.amazonEC2CloudProfile
 import jetbrains.buildServer.configs.kotlin.projectFeatures.bitbucketServerConnection
 import jetbrains.buildServer.configs.kotlin.projectFeatures.hashiCorpVaultConnection
 import jetbrains.buildServer.configs.kotlin.projectFeatures.kubernetesConnection
@@ -160,6 +161,13 @@ object Project : Project({
                 iamRoleArn = "arn"
                 clusterName = "cluster-name"
             }
+        }
+        amazonEC2CloudProfile {
+            id = "amazon-3"
+            name = "AWS Stuff"
+            terminateIdleMinutes = 30
+            region = AmazonEC2CloudProfile.Regions.US_EAST_N_VIRGINIA
+            param("awsConnectionId", "StaticCredentialsInRoot")
         }
         hashiCorpVaultConnection {
             id = "hashicorpVaultConnection1"
