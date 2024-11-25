@@ -22,6 +22,7 @@ object Build : BuildType({
                 echo '%vaultParam%' > meow.txt
                 sleep 1000000
             """.trimIndent()
+            dockerImage = "node:20"
         }
         gradle {
             id = "gradle_runner"
