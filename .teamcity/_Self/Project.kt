@@ -109,6 +109,8 @@ object Project : Project({
             id = "PROJECT_EXT_23"
             connectionId = "PROJECT_EXT_3"
             profileName = "Meow"
+            containerParameters = "meow=meow"
+            templateName = "pod-test"
         }
         kubernetesConnection {
             id = "PROJECT_EXT_3"
@@ -168,6 +170,7 @@ object Project : Project({
         hashiCorpVaultConnection {
             id = "hashicorpVaultConnection1"
             name = "HashiCorp Vault"
+            vaultId = ""
             url = "http://127.0.0.1:8200"
             authMethod = appRole {
                 roleId = "f3e75c6b-118b-48a1-97fc-6b8a69eb3bc3"
