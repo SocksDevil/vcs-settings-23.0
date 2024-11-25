@@ -28,16 +28,6 @@ object Project : Project({
     }
 
     features {
-        feature {
-            id = "Fake-2"
-            type = "CloudProfile"
-            param("profileId", "Fake-2")
-            param("name", "Fake")
-            param("description", "")
-            param("cloud-code", "Fake")
-            param("terminate-idle-time", "30")
-            param("enabled", "true")
-        }
         kubernetesConnection {
             id = "PROJECT_EXT_10"
             name = "EKS"
