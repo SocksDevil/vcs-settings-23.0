@@ -109,7 +109,6 @@ object Project : Project({
             id = "PROJECT_EXT_23"
             connectionId = "PROJECT_EXT_3"
             profileName = "Meow"
-            templateName = "node-selector"
         }
         kubernetesConnection {
             id = "PROJECT_EXT_3"
