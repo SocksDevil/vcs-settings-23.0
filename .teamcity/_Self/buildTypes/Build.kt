@@ -44,8 +44,4 @@ object Build : BuildType({
         vcs {
         }
     }
-
-    failureConditions {
-        executionTimeoutMin = 1
-    }
 })
