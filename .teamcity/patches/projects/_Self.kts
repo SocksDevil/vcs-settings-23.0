@@ -26,6 +26,7 @@ changeProject(DslContext.projectId) {
             }
         }
         feature1.apply {
+            profileName = "Meow Meow"
             buildsLimit = "1"
             serverURL = "http://10.128.198.42:8111/bs"
             containerParameters = ""
