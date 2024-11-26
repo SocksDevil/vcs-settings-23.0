@@ -109,6 +109,7 @@ object Project : Project({
             id = "PROJECT_EXT_23"
             connectionId = "PROJECT_EXT_3"
             profileName = "Meow"
+            serverURL = "http://localhost:8111/bs"
             containerParameters = "meow=meow"
             templateName = "pod-test"
         }
