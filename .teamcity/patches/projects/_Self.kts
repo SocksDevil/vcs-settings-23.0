@@ -27,6 +27,9 @@ changeProject(DslContext.projectId) {
         }
         feature1.apply {
             buildsLimit = "1"
+            serverURL = "http://10.128.198.42:8111/bs"
+            containerParameters = ""
+            templateName = ""
         }
         val feature2 = find<HashiCorpVaultConnection> {
             hashiCorpVaultConnection {
