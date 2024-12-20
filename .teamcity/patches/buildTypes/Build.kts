@@ -12,6 +12,10 @@ To apply the patch, change the buildType with id = 'Build'
 accordingly, and delete the patch script.
 */
 changeBuildType(RelativeId("Build")) {
+    vcs {
+        add(RelativeId("HttpsGithubComSocksDevilTeamcityAwsLambdaPluginExampleRefsHeadsMain"))
+    }
+
     expectSteps {
         script {
             id = "simpleRunner_1"
