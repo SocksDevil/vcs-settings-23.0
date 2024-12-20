@@ -31,18 +31,6 @@ changeProject(DslContext.projectId) {
         add {
             feature {
                 type = "CloudProfile"
-                id = "Fake-4"
-                param("profileId", "Fake-4")
-                param("name", "Fake")
-                param("description", "")
-                param("cloud-code", "Fake")
-                param("terminate-idle-time", "30")
-                param("enabled", "true")
-            }
-        }
-        add {
-            feature {
-                type = "CloudProfile"
                 id = "Fake-5"
                 param("profileId", "Fake-5")
                 param("name", "Fake2")
