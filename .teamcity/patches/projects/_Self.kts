@@ -5,6 +5,7 @@ import jetbrains.buildServer.configs.kotlin.Project
 import jetbrains.buildServer.configs.kotlin.projectFeatures.HashiCorpVaultConnection
 import jetbrains.buildServer.configs.kotlin.projectFeatures.KubernetesExecutor
 import jetbrains.buildServer.configs.kotlin.projectFeatures.hashiCorpVaultConnection
+import jetbrains.buildServer.configs.kotlin.projectFeatures.kubernetesConnection
 import jetbrains.buildServer.configs.kotlin.projectFeatures.kubernetesExecutor
 import jetbrains.buildServer.configs.kotlin.ui.*
 
@@ -35,6 +36,19 @@ changeProject(DslContext.projectId) {
             buildsLimit = "2"
             param("parametersAvailable", "")
             param("enabled", "")
+        }
+        remove {
+            kubernetesConnection {
+                id = "PROJECT_EXT_9"
+                name = "EKS with server instance profile"
+                apiServerUrl = "meow"
+                authStrategy = eks {
+                    eksUseInstanceProfile = true
+                    assumeIamRole = true
+                    iamRoleArn = "arn"
+                    clusterName = "cluster-name"
+                }
+            }
         }
         val feature2 = find<HashiCorpVaultConnection> {
             hashiCorpVaultConnection {
