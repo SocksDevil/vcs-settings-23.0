@@ -19,5 +19,13 @@ changeProject(RelativeId("ChildProject")) {
                 profileName = "Test"
             }
         }
+        add {
+            feature {
+                type = "BuildExecutor"
+                id = "PROJECT_EXT_4"
+                param("profileName", "Subproject Executor")
+                param("executorType", "FakeExecutor")
+            }
+        }
     }
 }
