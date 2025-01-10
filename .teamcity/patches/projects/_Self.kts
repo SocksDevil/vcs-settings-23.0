@@ -3,7 +3,6 @@ package patches.projects
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.Project
 import jetbrains.buildServer.configs.kotlin.projectFeatures.HashiCorpVaultConnection
-import jetbrains.buildServer.configs.kotlin.projectFeatures.KubernetesConnection
 import jetbrains.buildServer.configs.kotlin.projectFeatures.KubernetesExecutor
 import jetbrains.buildServer.configs.kotlin.projectFeatures.hashiCorpVaultConnection
 import jetbrains.buildServer.configs.kotlin.projectFeatures.kubernetesConnection
@@ -23,29 +22,7 @@ changeProject(DslContext.projectId) {
     }
 
     features {
-        val feature1 = find<KubernetesConnection> {
-            kubernetesConnection {
-                id = "PROJECT_EXT_10"
-                name = "EKS"
-                apiServerUrl = "meow"
-                namespace = "meow"
-                authStrategy = eks {
-                    accessId = "id"
-                    secretKey = "credentialsJSON:3507800f-ae64-49f1-bbb5-0a4deec5c7b3"
-                    clusterName = "cluster-name"
-                }
-            }
-        }
-        feature1.apply {
-            authStrategy = eks {
-                eksUseInstanceProfile = true
-                accessId = "id"
-                secretKey = "credentialsJSON:3507800f-ae64-49f1-bbb5-0a4deec5c7b3"
-                iamRoleArn = ""
-                clusterName = "cluster-name"
-            }
-        }
-        val feature2 = find<KubernetesExecutor> {
+        val feature1 = find<KubernetesExecutor> {
             kubernetesExecutor {
                 id = "PROJECT_EXT_23"
                 connectionId = "PROJECT_EXT_3"
@@ -55,7 +32,7 @@ changeProject(DslContext.projectId) {
                 param("parametersAvailable", "1")
             }
         }
-        feature2.apply {
+        feature1.apply {
             buildsLimit = "2"
             param("parametersAvailable", "")
             param("enabled", "")
@@ -73,7 +50,7 @@ changeProject(DslContext.projectId) {
                 }
             }
         }
-        val feature3 = find<HashiCorpVaultConnection> {
+        val feature2 = find<HashiCorpVaultConnection> {
             hashiCorpVaultConnection {
                 id = "hashicorpVaultConnection1"
                 name = "HashiCorp Vault"
@@ -86,7 +63,7 @@ changeProject(DslContext.projectId) {
                 failOnError = false
             }
         }
-        feature3.apply {
+        feature2.apply {
         }
     }
 }
