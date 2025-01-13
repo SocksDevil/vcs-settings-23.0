@@ -3,6 +3,7 @@ package patches.projects
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.Project
 import jetbrains.buildServer.configs.kotlin.projectFeatures.HashiCorpVaultConnection
+import jetbrains.buildServer.configs.kotlin.projectFeatures.KubernetesConnection
 import jetbrains.buildServer.configs.kotlin.projectFeatures.KubernetesExecutor
 import jetbrains.buildServer.configs.kotlin.projectFeatures.hashiCorpVaultConnection
 import jetbrains.buildServer.configs.kotlin.projectFeatures.kubernetesConnection
@@ -37,6 +38,21 @@ changeProject(DslContext.projectId) {
             param("parametersAvailable", "")
             param("enabled", "")
         }
+        val feature2 = find<KubernetesConnection> {
+            kubernetesConnection {
+                id = "PROJECT_EXT_8"
+                name = "Certificate & Key"
+                apiServerUrl = "meow"
+                namespace = "meow"
+                authStrategy = clientCertificateAndKey {
+                    clientKey = "credentialsJSON:43b46ece-15a7-4621-a271-7d2b33e9e356"
+                    clientCertificate = "credentialsJSON:87a6537c-cb8f-4684-b44d-e0ea183e9fa1"
+                }
+            }
+        }
+        feature2.apply {
+            caCertificate = "credentialsJSON:b5a2935a-eda9-4e36-b4e0-398d6c833371"
+        }
         remove {
             kubernetesConnection {
                 id = "PROJECT_EXT_9"
@@ -50,7 +66,7 @@ changeProject(DslContext.projectId) {
                 }
             }
         }
-        val feature2 = find<HashiCorpVaultConnection> {
+        val feature3 = find<HashiCorpVaultConnection> {
             hashiCorpVaultConnection {
                 id = "hashicorpVaultConnection1"
                 name = "HashiCorp Vault"
@@ -63,7 +79,7 @@ changeProject(DslContext.projectId) {
                 failOnError = false
             }
         }
-        feature2.apply {
+        feature3.apply {
         }
     }
 }
