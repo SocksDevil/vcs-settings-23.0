@@ -53,7 +53,7 @@ changeProject(DslContext.projectId) {
         feature2.apply {
             caCertificate = "credentialsJSON:b5a2935a-eda9-4e36-b4e0-398d6c833371"
         }
-        val feature3 = find<KubernetesConnection> {
+        remove {
             kubernetesConnection {
                 id = "PROJECT_EXT_9"
                 name = "EKS with server instance profile"
@@ -66,15 +66,7 @@ changeProject(DslContext.projectId) {
                 }
             }
         }
-        feature3.apply {
-            name = "Kubernetes Connection"
-            authStrategy = unauthorized()
-            param("eksAssumeIAMRole", "")
-            param("eksClusterName", "")
-            param("eksIAMRoleArn", "")
-            param("eksUseInstanceProfile", "")
-        }
-        val feature4 = find<HashiCorpVaultConnection> {
+        val feature3 = find<HashiCorpVaultConnection> {
             hashiCorpVaultConnection {
                 id = "hashicorpVaultConnection1"
                 name = "HashiCorp Vault"
@@ -87,7 +79,7 @@ changeProject(DslContext.projectId) {
                 failOnError = false
             }
         }
-        feature4.apply {
+        feature3.apply {
         }
     }
 }
