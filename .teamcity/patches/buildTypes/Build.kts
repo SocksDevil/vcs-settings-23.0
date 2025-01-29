@@ -50,7 +50,7 @@ changeBuildType(RelativeId("Build")) {
             gradle {
                 id = "gradle_runner"
                 tasks = "clean build"
-                gradleWrapperPath = ""
+                param("teamcity.kubernetes.executor.pull.policy", "IfNotPresent")
             }
         }
         items.removeAt(2)
