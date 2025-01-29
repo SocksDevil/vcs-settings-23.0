@@ -8,7 +8,6 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.projectFeatures.bitbucketServerConnection
 import jetbrains.buildServer.configs.kotlin.projectFeatures.hashiCorpVaultConnection
 import jetbrains.buildServer.configs.kotlin.projectFeatures.kubernetesConnection
-import jetbrains.buildServer.configs.kotlin.projectFeatures.kubernetesExecutor
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
@@ -122,12 +121,14 @@ project {
                 token = "credentialsJSON:d73cd72a-d98b-4526-a1c6-ef21c24c1c5e"
             }
         }
-        kubernetesExecutor {
+        feature {
             id = "PROJECT_EXT_23"
-            connectionId = "PROJECT_EXT_3"
-            profileName = "Meow"
-            buildsLimit = "2"
+            type = "BuildExecutor"
+            param("profileName", "Meow")
+            param("executorType", "KubernetesExecutor")
+            param("connectionId", "PROJECT_EXT_3")
             param("parametersAvailable", "")
+            param("buildsLimit", "2")
             param("enabled", "")
         }
         kubernetesConnection {
@@ -171,6 +172,7 @@ project {
         hashiCorpVaultConnection {
             id = "hashicorpVaultConnection1"
             name = "HashiCorp Vault"
+            vaultId = ""
             url = "http://127.0.0.1:8200"
             authMethod = appRole {
                 roleId = "f3e75c6b-118b-48a1-97fc-6b8a69eb3bc3"
@@ -201,7 +203,6 @@ object Build : BuildType({
         gradle {
             id = "gradle_runner"
             tasks = "clean build"
-            param("teamcity.kubernetes.executor.pull.policy", "IfNotPresent")
         }
         script {
             id = "simpleRunner_1"
@@ -217,7 +218,6 @@ object Build : BuildType({
                 echo '%TEST%' >> meow.txt
                 #sleep 1000000
             """.trimIndent()
-            param("teamcity.kubernetes.executor.pull.policy", "Never")
         }
     }
 
@@ -277,7 +277,6 @@ object ThisIsSupposedToBeAVeryLongNameToSeeIfICanBreakStuffUwuSlay : BuildType({
             name = "dotnettest"
             id = "dotnettest"
             param("teamcity.kubernetes.executor.container.image", "mcr.microsoft.com/dotnet/sdk:8.0")
-            param("teamcity.kubernetes.executor.pull.policy", "IfNotPresent")
         }
     }
 
