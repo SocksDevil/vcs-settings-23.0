@@ -2,6 +2,7 @@ package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.swabra
+import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.ui.*
@@ -54,6 +55,10 @@ changeBuildType(RelativeId("Build")) {
             }
         }
         items.removeAt(2)
+        update<ScriptBuildStep>(2) {
+            clearConditions()
+            param("teamcity.kubernetes.executor.pull.policy", "Never")
+        }
     }
 
     features {
