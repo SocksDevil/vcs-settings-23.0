@@ -39,4 +39,12 @@ changeBuildType(RelativeId("Build")) {
             param("teamcity.kubernetes.executor.pull.policy", "+Present")
         }
     }
+
+    failureConditions {
+
+        check(executionTimeoutMin == 0) {
+            "Unexpected option value: executionTimeoutMin = $executionTimeoutMin"
+        }
+        executionTimeoutMin = 1
+    }
 }
