@@ -26,7 +26,7 @@ changeProject(DslContext.projectId) {
             }
         }
         feature1.apply {
-            buildsLimit = "-2"
+            buildsLimit = ""
         }
         val feature2 = find<HashiCorpVaultConnection> {
             hashiCorpVaultConnection {
