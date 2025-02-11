@@ -48,7 +48,7 @@ changeBuildType(RelativeId("Build")) {
             scriptContent = """
                 echo '%vaultParam%' >> meow.txt
                 echo '%TEST%' >> meow.txt
-                sleep 1000000
+                sleep 240
             """.trimIndent()
         }
         insert(2) {
