@@ -57,6 +57,6 @@ changeBuildType(RelativeId("Build")) {
         check(executionTimeoutMin == 0) {
             "Unexpected option value: executionTimeoutMin = $executionTimeoutMin"
         }
-        executionTimeoutMin = 1
+        executionTimeoutMin = 5
     }
 }
