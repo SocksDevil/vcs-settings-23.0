@@ -1,7 +1,6 @@
 package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.*
-import jetbrains.buildServer.configs.kotlin.buildSteps.GradleBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.ui.*
@@ -34,9 +33,13 @@ changeBuildType(RelativeId("Build")) {
         }
     }
     steps {
-        update<GradleBuildStep>(0) {
-            clearConditions()
-            param("teamcity.kubernetes.executor.pull.policy", "+Present")
+        items.removeAt(0)
+        insert(2) {
+            gradle {
+                id = "gradle_runner"
+                tasks = "clean build"
+                param("teamcity.kubernetes.executor.pull.policy", "+Present")
+            }
         }
     }
 
