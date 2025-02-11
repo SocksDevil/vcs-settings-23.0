@@ -35,6 +35,14 @@ changeBuildType(RelativeId("Build")) {
     }
     steps {
         items.removeAt(0)
+        update<ScriptBuildStep>(0) {
+            clearConditions()
+            scriptContent = """
+                echo "##teamcity[setParameter name='TEST' value='test']"
+                echo '%vaultParam%' > meow.txt
+                sleep 240
+            """.trimIndent()
+        }
         update<ScriptBuildStep>(1) {
             clearConditions()
             scriptContent = """
