@@ -26,6 +26,8 @@ changeProject(DslContext.projectId) {
             }
         }
         feature1.apply {
+            buildsLimit = ""
+            containerParameters = "meow=meow"
         }
         val feature2 = find<HashiCorpVaultConnection> {
             hashiCorpVaultConnection {
