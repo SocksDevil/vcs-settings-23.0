@@ -3,7 +3,9 @@ package patches.projects
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.Project
 import jetbrains.buildServer.configs.kotlin.projectFeatures.HashiCorpVaultConnection
+import jetbrains.buildServer.configs.kotlin.projectFeatures.KubernetesExecutor
 import jetbrains.buildServer.configs.kotlin.projectFeatures.hashiCorpVaultConnection
+import jetbrains.buildServer.configs.kotlin.projectFeatures.kubernetesExecutor
 import jetbrains.buildServer.configs.kotlin.ui.*
 
 /*
@@ -13,7 +15,17 @@ accordingly, and delete the patch script.
 */
 changeProject(DslContext.projectId) {
     features {
-        val feature1 = find<HashiCorpVaultConnection> {
+        val feature1 = find<KubernetesExecutor> {
+            kubernetesExecutor {
+                id = "PROJECT_EXT_23"
+                connectionId = "PROJECT_EXT_3"
+                profileName = "Meow"
+            }
+        }
+        feature1.apply {
+            containerParameters = "parameter.dot=meow"
+        }
+        val feature2 = find<HashiCorpVaultConnection> {
             hashiCorpVaultConnection {
                 id = "hashicorpVaultConnection1"
                 name = "HashiCorp Vault"
@@ -25,7 +37,8 @@ changeProject(DslContext.projectId) {
                 failOnError = false
             }
         }
-        feature1.apply {
+        feature2.apply {
+            vaultId = ""
         }
     }
 }
