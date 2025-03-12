@@ -23,7 +23,7 @@ changeProject(DslContext.projectId) {
             }
         }
         feature1.apply {
-            containerParameters = "parameter.dot=meow"
+            containerParameters = "parameter.dot.=meow"
         }
         val feature2 = find<HashiCorpVaultConnection> {
             hashiCorpVaultConnection {
