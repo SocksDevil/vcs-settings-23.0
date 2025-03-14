@@ -13,6 +13,18 @@ changeProject(RelativeId("ChildProject")) {
     features {
         add {
             feature {
+                type = "CloudProfile"
+                id = "Fake-7"
+                param("profileId", "Fake-7")
+                param("name", "meow")
+                param("description", "")
+                param("cloud-code", "Fake")
+                param("terminate-idle-time", "30")
+                param("enabled", "true")
+            }
+        }
+        add {
+            feature {
                 type = "BuildExecutor"
                 id = "PROJECT_EXT_21"
                 param("profileName", "meow")
