@@ -38,7 +38,6 @@ changeProject(DslContext.projectId) {
             }
         }
         feature2.apply {
-            vaultId = ""
         }
     }
 }
