@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" parent-id="KubernetesExample" uuid="" xsi:noNamespaceSchemaLocation="https://www.jetbrains.com/teamcity/schemas/2025.3/project-config.xsd">
+  <name>Child Project</name>
+  <project-extensions>
+    <extension id="Fake-7" type="CloudProfile">
+      <parameters>
+        <param name="cloud-code" value="Fake" />
+        <param name="description" value="" />
+        <param name="enabled" value="false" />
+        <param name="name" value="meow" />
+        <param name="profileId" value="Fake-7" />
+        <param name="terminate-idle-time" value="30" />
+      </parameters>
+    </extension>
+    <extension id="PROJECT_EXT_21" type="BuildExecutor">
+      <parameters>
+        <param name="executorType" value="FakeExecutor" />
+        <param name="profileName" value="meow" />
+      </parameters>
+    </extension>
+    <extension id="PROJECT_EXT_4" type="BuildExecutor">
+      <parameters>
+        <param name="executorType" value="FakeExecutor" />
+        <param name="profileName" value="Subproject Executor" />
+      </parameters>
+    </extension>
+  </project-extensions>
+</project>
+
