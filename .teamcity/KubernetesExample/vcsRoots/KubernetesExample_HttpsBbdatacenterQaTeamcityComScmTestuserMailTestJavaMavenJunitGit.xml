@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vcs-root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="" type="jetbrains.git" xsi:noNamespaceSchemaLocation="https://www.jetbrains.com/teamcity/schemas/2025.3/project-config.xsd">
+  <name>https://bbdatacenter.qa.teamcity.com/scm/~testuser_mail.test/java-maven-junit.git</name>
+  <param name="agentCleanFilesPolicy" value="ALL_UNTRACKED" />
+  <param name="agentCleanPolicy" value="ON_BRANCH_CHANGE" />
+  <param name="authMethod" value="PASSWORD" />
+  <param name="branch" value="refs/heads/master" />
+  <param name="ignoreKnownHosts" value="true" />
+  <param name="secure:password" value="credentialsJSON:e04e7bdc-2a50-49a7-be64-7045d3df76dd" />
+  <param name="submoduleCheckout" value="CHECKOUT" />
+  <param name="url" value="https://bbdatacenter.qa.teamcity.com/scm/~testuser_mail.test/java-maven-junit.git" />
+  <param name="useAlternates" value="AUTO" />
+  <param name="username" value="admin" />
+  <param name="usernameStyle" value="USERID" />
+</vcs-root>
+
