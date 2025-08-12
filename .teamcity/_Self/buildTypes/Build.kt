@@ -1,6 +1,7 @@
 package _Self.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.buildSteps.DotnetBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.dotnetBuild
 import jetbrains.buildServer.configs.kotlin.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.buildSteps.powerShell
@@ -76,6 +77,9 @@ object Build : BuildType({
             name = "Dotnet"
             id = "Dotnet"
             enabled = false
+            executionMode = BuildStep.ExecutionMode.DEFAULT
+            kubernetesPullPolicy = DotnetBuildStep.PullPolicy.IfNotPresent
+            param("dotNetCoverage.dotCover.home.path", "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%")
         }
         script {
             name = "Meow"

@@ -1,6 +1,7 @@
 package _Self.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.buildSteps.DotnetBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.dotnetBuild
 import jetbrains.buildServer.configs.kotlin.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
@@ -22,7 +23,10 @@ object ThisIsSupposedToBeAVeryLongNameToSeeIfICanBreakStuffUwuSlay : BuildType({
         dotnetBuild {
             name = "dotnettest"
             id = "dotnettest"
+            executionMode = BuildStep.ExecutionMode.DEFAULT
+            kubernetesPullPolicy = DotnetBuildStep.PullPolicy.IfNotPresent
             param("teamcity.kubernetes.executor.container.image", "mcr.microsoft.com/dotnet/sdk:8.0")
+            param("dotNetCoverage.dotCover.home.path", "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%")
         }
     }
 
