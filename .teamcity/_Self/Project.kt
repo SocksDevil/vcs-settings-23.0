@@ -179,7 +179,7 @@ object Project : Project({
             agentPoolId = "-2"
             agentNamePrefix = "linux"
             podSpecification = runContainer {
-                dockerImage = "jetbrains/teamcity-agent"
+                dockerImage = "jetbrains/teamcity-agent:2025.07"
             }
         }
         kubernetesConnection {
