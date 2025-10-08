@@ -61,27 +61,5 @@ changeProject(DslContext.projectId) {
             caCertData = "credentialsJSON:c77bc0a7-f461-4ca8-959b-ee5c8f6389b6"
             namespace = "executor-pods"
         }
-        val feature4 = find<KubernetesCloudProfile> {
-            kubernetesCloudProfile {
-                id = "kube-6"
-                enabled = false
-                name = "Dasha Cluster"
-                terminateIdleMinutes = 30
-                apiServerURL = "https://A51B42A65F7E54005C95A4D353916627.gr7.eu-west-1.eks.amazonaws.com"
-                caCertData = "credentialsJSON:4cfb95a6-dd98-454a-98d1-2dd8a28ca6dd"
-                authStrategy = eks {
-                    accessId = "AKIA5JH2VERVAYHV5RNO"
-                    secretKey = "credentialsJSON:5f77bcdc-20b7-4d84-8971-f14dc824a8e7"
-                    iamRoleArn = ""
-                    clusterName = "tc-dkrupkina-eks-cluster"
-                }
-            }
-        }
-        feature4.apply {
-            name = "Dasha Cluster"
-            terminateIdleMinutes = 30
-            apiServerURL = "https://A51B42A65F7E54005C95A4D353916627.gr7.eu-west-1.eks.amazonaws.com"
-            caCertData = "credentialsJSON:4cfb95a6-dd98-454a-98d1-2dd8a28ca6dd"
-        }
     }
 }
