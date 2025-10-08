@@ -31,7 +31,6 @@ object BuildMatrixBuild : BuildType({
                 value("Linux"),
                 value("MacOs")
             )
-            param("separateArtifacts", "true")
         }
     }
 

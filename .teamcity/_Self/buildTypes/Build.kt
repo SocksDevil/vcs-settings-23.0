@@ -103,7 +103,7 @@ object Build : BuildType({
                 value("meow"),
                 value("meowmeow")
             ))
-            param("separateArtifacts", "false")
+            groupArtifactsByBuild = false
         }
     }
 
