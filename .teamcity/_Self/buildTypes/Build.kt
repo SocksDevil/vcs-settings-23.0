@@ -80,6 +80,7 @@ object Build : BuildType({
         script {
             name = "Meow"
             id = "Meow"
+            enabled = false
             scriptContent = "echo Meow"
             param("teamcity.kubernetes.executor.container.image", "lolol")
         }
