@@ -31,6 +31,7 @@ object BuildMatrixBuild : BuildType({
                 value("Linux"),
                 value("MacOs")
             )
+            groupArtifactsByBuild = false
         }
     }
 
