@@ -60,7 +60,7 @@ object Build : BuildType({
         script {
             name = "Zzzz"
             id = "Zzzz"
-            scriptContent = "sleep 1"
+            scriptContent = "sleep 10"
         }
         powerShell {
             name = "Powershell"
