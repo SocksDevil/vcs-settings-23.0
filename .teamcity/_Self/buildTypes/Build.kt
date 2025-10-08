@@ -87,6 +87,7 @@ object Build : BuildType({
         script {
             name = "banana"
             id = "banana"
+            enabled = false
             scriptContent = "echo banana"
             dockerImage = "banana"
         }
