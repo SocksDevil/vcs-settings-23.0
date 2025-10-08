@@ -108,9 +108,4 @@ object Build : BuildType({
             groupArtifactsByBuild = false
         }
     }
-
-    dependencies {
-        snapshot(AbsoluteId("AwsExample_Build")) {
-        }
-    }
 })
