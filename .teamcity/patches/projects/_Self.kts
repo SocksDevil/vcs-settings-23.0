@@ -16,6 +16,12 @@ To apply the patch, change the root project
 accordingly, and delete the patch script.
 */
 changeProject(DslContext.projectId) {
+    params {
+        add {
+            text("meow", "", allowEmpty = false)
+        }
+    }
+
     features {
         val feature1 = find<DockerRegistryConnection> {
             dockerRegistry {
@@ -38,7 +44,6 @@ changeProject(DslContext.projectId) {
             }
         }
         feature2.apply {
-            vaultId = ""
         }
         val feature3 = find<KubernetesCloudProfile> {
             kubernetesCloudProfile {
