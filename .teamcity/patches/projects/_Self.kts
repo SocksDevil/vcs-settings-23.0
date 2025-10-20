@@ -18,9 +18,6 @@ accordingly, and delete the patch script.
 changeProject(DslContext.projectId) {
     params {
         add {
-            param("teamcity.internal.parameters.newDialog.enabled", "false")
-        }
-        add {
             text("meow", "", allowEmpty = false)
         }
     }
