@@ -18,7 +18,7 @@ accordingly, and delete the patch script.
 changeProject(DslContext.projectId) {
     params {
         add {
-            text("meow", "", allowEmpty = false)
+            text("meow", "meow", allowEmpty = false)
         }
     }
 
