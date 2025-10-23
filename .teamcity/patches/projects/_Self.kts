@@ -59,7 +59,6 @@ changeProject(DslContext.projectId) {
             }
         }
         feature3.apply {
-            enabled = false
             name = "K8S Test"
             terminateAfterBuild = true
             terminateIdleMinutes = 30
