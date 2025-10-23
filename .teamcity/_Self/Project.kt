@@ -177,7 +177,7 @@ object Project : Project({
         kubernetesCloudImage {
             id = "PROJECT_EXT_29"
             profileId = "kube-5"
-            agentPoolId = "20"
+            agentPoolId = "-2"
             agentNamePrefix = "linux"
             podSpecification = runContainer {
                 dockerImage = "jetbrains/teamcity-agent:2025.07"
