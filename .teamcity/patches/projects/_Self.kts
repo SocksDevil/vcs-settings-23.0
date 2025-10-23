@@ -29,7 +29,7 @@ changeProject(DslContext.projectId) {
             kubernetesCloudImage {
                 id = "PROJECT_EXT_29"
                 profileId = "kube-5"
-                agentPoolId = "25"
+                agentPoolId = "20"
                 agentNamePrefix = "linux"
                 podSpecification = runContainer {
                     dockerImage = "jetbrains/teamcity-agent:2025.07"
@@ -78,6 +78,7 @@ changeProject(DslContext.projectId) {
             }
         }
         feature4.apply {
+            enabled = false
             name = "K8S Test"
             terminateAfterBuild = true
             terminateIdleMinutes = 30
