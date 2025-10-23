@@ -1,8 +1,10 @@
 package patches.projects
 
 import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.KubernetesCloudImage
 import jetbrains.buildServer.configs.kotlin.KubernetesCloudProfile
 import jetbrains.buildServer.configs.kotlin.Project
+import jetbrains.buildServer.configs.kotlin.kubernetesCloudImage
 import jetbrains.buildServer.configs.kotlin.kubernetesCloudProfile
 import jetbrains.buildServer.configs.kotlin.projectFeatures.DockerRegistryConnection
 import jetbrains.buildServer.configs.kotlin.projectFeatures.HashiCorpVaultConnection
@@ -23,15 +25,32 @@ changeProject(DslContext.projectId) {
     }
 
     features {
-        val feature1 = find<DockerRegistryConnection> {
+        val feature1 = find<KubernetesCloudImage> {
+            kubernetesCloudImage {
+                id = "PROJECT_EXT_29"
+                profileId = "kube-5"
+                agentPoolId = "25"
+                agentNamePrefix = "linux"
+                podSpecification = runContainer {
+                    dockerImage = "jetbrains/teamcity-agent:2025.07"
+                }
+            }
+        }
+        feature1.apply {
+            profileId = "kube-5"
+            agentPoolId = "-2"
+            agentNamePrefix = "linux"
+            param("sourceDeployment", "")
+        }
+        val feature2 = find<DockerRegistryConnection> {
             dockerRegistry {
                 id = "PROJECT_EXT_35"
                 name = "Docker Registry"
             }
         }
-        feature1.apply {
+        feature2.apply {
         }
-        val feature2 = find<HashiCorpVaultConnection> {
+        val feature3 = find<HashiCorpVaultConnection> {
             hashiCorpVaultConnection {
                 id = "hashicorpVaultConnection1"
                 name = "HashiCorp Vault"
@@ -43,9 +62,9 @@ changeProject(DslContext.projectId) {
                 failOnError = false
             }
         }
-        feature2.apply {
+        feature3.apply {
         }
-        val feature3 = find<KubernetesCloudProfile> {
+        val feature4 = find<KubernetesCloudProfile> {
             kubernetesCloudProfile {
                 id = "kube-5"
                 name = "K8S Test"
@@ -58,7 +77,7 @@ changeProject(DslContext.projectId) {
                 }
             }
         }
-        feature3.apply {
+        feature4.apply {
             name = "K8S Test"
             terminateAfterBuild = true
             terminateIdleMinutes = 30
