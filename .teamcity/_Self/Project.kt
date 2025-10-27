@@ -28,7 +28,7 @@ object Project : Project({
 
     params {
         text("inherit", "meow", allowEmpty = false)
-        text("meow", "fjrggh", allowEmpty = false)
+        text("meow", "", allowEmpty = false)
     }
 
     features {
