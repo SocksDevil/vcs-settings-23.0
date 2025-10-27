@@ -28,7 +28,7 @@ object Project : Project({
 
     params {
         text("inherit", "meow", allowEmpty = false)
-        text("meow", "", display = ParameterDisplay.HIDDEN, allowEmpty = false)
+        text("meow", "", allowEmpty = false)
     }
 
     features {
