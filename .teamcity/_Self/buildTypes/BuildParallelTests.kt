@@ -29,7 +29,7 @@ object BuildParallelTests : BuildType({
         parallelTests {
             enabled = false
             numberOfBatches = 2
-            param("groupArtifactsByBuild", "false")
+            groupArtifactsByBuild = false
         }
     }
 })

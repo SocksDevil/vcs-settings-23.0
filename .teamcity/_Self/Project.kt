@@ -244,7 +244,6 @@ object Project : Project({
         hashiCorpVaultConnection {
             id = "hashicorpVaultConnection1"
             name = "HashiCorp Vault"
-            vaultId = ""
             url = "http://127.0.0.1:8200"
             authMethod = appRole {
                 roleId = "f3e75c6b-118b-48a1-97fc-6b8a69eb3bc3"
@@ -254,6 +253,7 @@ object Project : Project({
         }
         kubernetesCloudProfile {
             id = "kube-5"
+            enabled = false
             name = "K8S Test"
             terminateAfterBuild = true
             terminateIdleMinutes = 30
