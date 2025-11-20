@@ -1,7 +1,6 @@
 package patches.projects
 
 import jetbrains.buildServer.configs.kotlin.*
-import jetbrains.buildServer.configs.kotlin.KubernetesCloudImage
 import jetbrains.buildServer.configs.kotlin.KubernetesCloudProfile
 import jetbrains.buildServer.configs.kotlin.Project
 import jetbrains.buildServer.configs.kotlin.kubernetesCloudImage
@@ -19,7 +18,7 @@ accordingly, and delete the patch script.
 */
 changeProject(DslContext.projectId) {
     features {
-        val feature1 = find<KubernetesCloudImage> {
+        remove {
             kubernetesCloudImage {
                 id = "PROJECT_EXT_34"
                 profileId = "kube-6"
@@ -31,25 +30,15 @@ changeProject(DslContext.projectId) {
                 param("imageInstanceLimit", "")
             }
         }
-        feature1.apply {
-            profileId = "kube-6"
-            agentPoolId = "-2"
-            agentNamePrefix = "simpledep"
-            podSpecification = runContainer {
-                dockerImage = "jetbrains/teamcity-agent:2025.07"
-                command = ""
-                arguments = ""
-            }
-        }
-        val feature2 = find<DockerRegistryConnection> {
+        val feature1 = find<DockerRegistryConnection> {
             dockerRegistry {
                 id = "PROJECT_EXT_35"
                 name = "Docker Registry"
             }
         }
-        feature2.apply {
+        feature1.apply {
         }
-        val feature3 = find<HashiCorpVaultConnection> {
+        val feature2 = find<HashiCorpVaultConnection> {
             hashiCorpVaultConnection {
                 id = "hashicorpVaultConnection1"
                 name = "HashiCorp Vault"
@@ -61,9 +50,9 @@ changeProject(DslContext.projectId) {
                 failOnError = false
             }
         }
-        feature3.apply {
+        feature2.apply {
         }
-        val feature4 = find<KubernetesCloudProfile> {
+        val feature3 = find<KubernetesCloudProfile> {
             kubernetesCloudProfile {
                 id = "kube-6"
                 name = "Dasha Cluster"
@@ -78,11 +67,23 @@ changeProject(DslContext.projectId) {
                 }
             }
         }
-        feature4.apply {
+        feature3.apply {
             name = "Dasha Cluster"
             terminateIdleMinutes = 30
             apiServerURL = "https://A51B42A65F7E54005C95A4D353916627.gr7.eu-west-1.eks.amazonaws.com"
             caCertData = "credentialsJSON:4cfb95a6-dd98-454a-98d1-2dd8a28ca6dd"
+        }
+        add {
+            kubernetesCloudImage {
+                id = "PROJECT_EXT_43"
+                profileId = "kube-6"
+                agentPoolId = "-2"
+                agentNamePrefix = "basic-agent"
+                podSpecification = runContainer {
+                    dockerImage = "jetbrains/teamcity-agent:2025.07"
+                }
+                param("imageInstanceLimit", "")
+            }
         }
     }
 }
