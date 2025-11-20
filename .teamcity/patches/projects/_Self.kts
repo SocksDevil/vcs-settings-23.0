@@ -17,6 +17,12 @@ To apply the patch, change the root project
 accordingly, and delete the patch script.
 */
 changeProject(DslContext.projectId) {
+    params {
+        add {
+            param("teamcity.internal.kubernetes.enableProxySettings", "true")
+        }
+    }
+
     features {
         remove {
             kubernetesCloudImage {
