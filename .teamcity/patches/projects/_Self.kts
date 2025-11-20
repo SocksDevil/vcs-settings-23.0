@@ -61,6 +61,31 @@ changeProject(DslContext.projectId) {
         }
         val feature3 = find<KubernetesCloudProfile> {
             kubernetesCloudProfile {
+                id = "kube-5"
+                enabled = false
+                name = "K8S Test"
+                terminateAfterBuild = true
+                terminateIdleMinutes = 30
+                apiServerURL = "https://6c60846089ad8c095bed3b18ff6d84a0.gr7.eu-west-1.eks.amazonaws.com"
+                caCertData = "credentialsJSON:c77bc0a7-f461-4ca8-959b-ee5c8f6389b6"
+                namespace = "executor-pods"
+                authStrategy = token {
+                    token = "credentialsJSON:fa92592e-ec16-4543-add0-1cdd4de87e5e"
+                }
+            }
+        }
+        feature3.apply {
+            enabled = false
+            name = "K8S Test"
+            terminateAfterBuild = true
+            terminateIdleMinutes = 30
+            apiServerURL = "https://6c60846089ad8c095bed3b18ff6d84a0.gr7.eu-west-1.eks.amazonaws.com"
+            caCertData = "credentialsJSON:c77bc0a7-f461-4ca8-959b-ee5c8f6389b6"
+            namespace = "executor-pods"
+            param("proxyServer", "http://localhost:8080")
+        }
+        val feature4 = find<KubernetesCloudProfile> {
+            kubernetesCloudProfile {
                 id = "kube-6"
                 name = "Dasha Cluster"
                 terminateIdleMinutes = 30
@@ -74,7 +99,7 @@ changeProject(DslContext.projectId) {
                 }
             }
         }
-        feature3.apply {
+        feature4.apply {
             name = "Dasha Cluster"
             terminateIdleMinutes = 30
             apiServerURL = "https://A51B42A65F7E54005C95A4D353916627.gr7.eu-west-1.eks.amazonaws.com"
