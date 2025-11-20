@@ -274,7 +274,6 @@ object Project : Project({
             authStrategy = eks {
                 accessId = "AKIA5JH2VERVAYHV5RNO"
                 secretKey = "credentialsJSON:5f77bcdc-20b7-4d84-8971-f14dc824a8e7"
-                iamRoleArn = ""
                 clusterName = "tc-dkrupkina-eks-cluster"
             }
         }
