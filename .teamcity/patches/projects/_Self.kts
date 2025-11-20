@@ -82,7 +82,6 @@ changeProject(DslContext.projectId) {
             apiServerURL = "https://6c60846089ad8c095bed3b18ff6d84a0.gr7.eu-west-1.eks.amazonaws.com"
             caCertData = "credentialsJSON:c77bc0a7-f461-4ca8-959b-ee5c8f6389b6"
             namespace = "executor-pods"
-            param("proxyServer", "http://localhost:8090/")
         }
         val feature4 = find<KubernetesCloudProfile> {
             kubernetesCloudProfile {
