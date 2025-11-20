@@ -72,6 +72,13 @@ changeProject(DslContext.projectId) {
             terminateIdleMinutes = 30
             apiServerURL = "https://A51B42A65F7E54005C95A4D353916627.gr7.eu-west-1.eks.amazonaws.com"
             caCertData = "credentialsJSON:4cfb95a6-dd98-454a-98d1-2dd8a28ca6dd"
+            authStrategy = eks {
+                accessId = "AKIA5JH2VERVAYHV5RNO"
+                secretKey = "credentialsJSON:5f77bcdc-20b7-4d84-8971-f14dc824a8e7"
+                assumeIAMRole = true
+                iamRoleArn = "dkrupkinaEc2Role"
+                clusterName = "tc-dkrupkina-eks-cluster"
+            }
         }
         add {
             kubernetesCloudImage {
