@@ -99,6 +99,7 @@ changeProject(DslContext.projectId) {
             }
         }
         feature4.apply {
+            enabled = false
             name = "Dasha Cluster"
             terminateIdleMinutes = 30
             apiServerURL = "https://A51B42A65F7E54005C95A4D353916627.gr7.eu-west-1.eks.amazonaws.com"
