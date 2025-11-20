@@ -80,7 +80,7 @@ changeProject(DslContext.projectId) {
                 agentPoolId = "-2"
                 agentNamePrefix = "basic-agent"
                 podSpecification = runContainer {
-                    dockerImage = "jetbrains/teamcity-agent:2025.07"
+                    dockerImage = "jetbrains/teamcity-agent:2025.07.3-linux"
                 }
                 param("imageInstanceLimit", "")
             }
