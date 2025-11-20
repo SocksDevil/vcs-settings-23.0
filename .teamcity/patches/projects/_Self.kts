@@ -51,6 +51,7 @@ changeProject(DslContext.projectId) {
             }
         }
         feature2.apply {
+            vaultId = ""
         }
         val feature3 = find<KubernetesCloudProfile> {
             kubernetesCloudProfile {
@@ -76,7 +77,7 @@ changeProject(DslContext.projectId) {
                 accessId = "AKIA5JH2VERVAYHV5RNO"
                 secretKey = "credentialsJSON:5f77bcdc-20b7-4d84-8971-f14dc824a8e7"
                 assumeIAMRole = true
-                iamRoleArn = "dkrupkinaEc2Role"
+                iamRoleArn = "arn:aws:iam::913206223978:role/dkrupkinaEc2Role"
                 clusterName = "tc-dkrupkina-eks-cluster"
             }
         }
