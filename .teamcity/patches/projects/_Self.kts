@@ -57,7 +57,6 @@ changeProject(DslContext.projectId) {
             }
         }
         feature2.apply {
-            vaultId = ""
         }
         val feature3 = find<KubernetesCloudProfile> {
             kubernetesCloudProfile {
