@@ -57,7 +57,6 @@ changeProject(DslContext.projectId) {
             }
         }
         feature2.apply {
-            vaultId = ""
         }
         val feature3 = find<KubernetesCloudProfile> {
             kubernetesCloudProfile {
@@ -75,7 +74,6 @@ changeProject(DslContext.projectId) {
             }
         }
         feature3.apply {
-            enabled = false
             name = "K8S Test"
             terminateAfterBuild = true
             terminateIdleMinutes = 30
