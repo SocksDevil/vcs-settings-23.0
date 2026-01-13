@@ -4,6 +4,8 @@ import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.KubernetesCloudProfile
 import jetbrains.buildServer.configs.kotlin.Project
 import jetbrains.buildServer.configs.kotlin.kubernetesCloudProfile
+import jetbrains.buildServer.configs.kotlin.projectFeatures.KubernetesExecutor
+import jetbrains.buildServer.configs.kotlin.projectFeatures.kubernetesExecutor
 import jetbrains.buildServer.configs.kotlin.ui.*
 
 /*
@@ -13,7 +15,19 @@ accordingly, and delete the patch script.
 */
 changeProject(DslContext.projectId) {
     features {
-        val feature1 = find<KubernetesCloudProfile> {
+        val feature1 = find<KubernetesExecutor> {
+            kubernetesExecutor {
+                id = "PROJECT_EXT_30"
+                connectionId = "PROJECT_EXT_3"
+                profileName = "K8S Executor"
+                enabled = true
+            }
+        }
+        feature1.apply {
+            templateName = "pod-test"
+            param("enabled", "")
+        }
+        val feature2 = find<KubernetesCloudProfile> {
             kubernetesCloudProfile {
                 id = "kube-5"
                 name = "K8S Test"
@@ -27,7 +41,7 @@ changeProject(DslContext.projectId) {
                 }
             }
         }
-        feature1.apply {
+        feature2.apply {
             enabled = false
             name = "K8S Test"
             terminateAfterBuild = true
