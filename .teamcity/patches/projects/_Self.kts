@@ -24,7 +24,7 @@ changeProject(DslContext.projectId) {
             }
         }
         feature1.apply {
-            templateName = "pod-test"
+            templateName = "meow"
             param("enabled", "")
         }
         val feature2 = find<KubernetesCloudProfile> {
