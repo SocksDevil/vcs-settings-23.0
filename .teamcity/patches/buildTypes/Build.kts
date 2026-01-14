@@ -11,7 +11,7 @@ accordingly, and delete the patch script.
 changeBuildType(RelativeId("Build")) {
     requirements {
         add {
-            exists("K8S_PAR")
+            exists("env.K8S_PAR")
         }
     }
 }
