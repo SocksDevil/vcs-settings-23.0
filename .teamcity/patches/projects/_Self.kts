@@ -26,7 +26,6 @@ changeProject(DslContext.projectId) {
             }
         }
         feature1.apply {
-            templateName = "meow"
             param("enabled", "")
         }
         val feature2 = find<HashiCorpVaultConnection> {
