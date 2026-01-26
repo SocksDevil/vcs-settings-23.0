@@ -80,10 +80,10 @@ changeProject(DslContext.projectId) {
         }
         add {
             kubernetesCloudImage {
-                id = "PROJECT_EXT_54"
+                id = "PROJECT_EXT_55"
                 profileId = "kube-5"
                 agentPoolId = "-2"
-                agentNamePrefix = "linuxlinuxlinuxlinuxlinuxlinuxlinuxlinuxlinuxlinuxlinuxlinux"
+                agentNamePrefix = "linuxlinuxlinuxlinuxlinuxlinuxlinuxlinuxlinuxlinuxlinuxlinux1"
                 podSpecification = runContainer {
                     dockerImage = "jetbrains/teamcity-agent:2025.07"
                 }
