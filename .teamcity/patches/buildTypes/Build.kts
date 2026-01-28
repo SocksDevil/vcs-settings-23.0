@@ -1,6 +1,11 @@
 package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
+import jetbrains.buildServer.configs.kotlin.buildSteps.dotnetBuild
+import jetbrains.buildServer.configs.kotlin.buildSteps.gradle
+import jetbrains.buildServer.configs.kotlin.buildSteps.powerShell
+import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.ui.*
 
 /*
@@ -9,6 +14,81 @@ To apply the patch, change the buildType with id = 'Build'
 accordingly, and delete the patch script.
 */
 changeBuildType(RelativeId("Build")) {
+    expectSteps {
+        script {
+            id = "simpleRunner_1"
+            enabled = false
+            scriptContent = """
+                echo "##teamcity[setParameter name='TEST' value='test']"
+                echo '%vaultParam%' > meow.txt
+                sleep 30
+            """.trimIndent()
+        }
+        script {
+            id = "simpleRunner"
+            enabled = false
+            scriptContent = """
+                echo '%vaultParam%' >> meow.txt
+                echo '%TEST%' >> meow.txt
+            """.trimIndent()
+        }
+        gradle {
+            id = "gradle_runner"
+            enabled = false
+            tasks = "clean build"
+            param("teamcity.kubernetes.executor.pull.policy", "+Present")
+        }
+        script {
+            id = "dotnet"
+            enabled = false
+            scriptContent = """
+                env > .env
+                /usr/share/dotnet/dotnet msbuild
+            """.trimIndent()
+            param("teamcity.kubernetes.executor.container.image", "mcr.microsoft.com/dotnet/sdk:7.0")
+        }
+        script {
+            name = "Zzzz"
+            id = "Zzzz"
+            scriptContent = "sleep 10"
+        }
+        powerShell {
+            name = "Powershell"
+            id = "Powershell"
+            enabled = false
+            scriptMode = file {
+                path = "meow.ps1"
+            }
+            param("teamcity.kubernetes.executor.container.image", "socksdevil/teamcity-agent-powershell:latest")
+            param("teamcity.kubernetes.executor.pull.policy", "Always")
+        }
+        dotnetBuild {
+            name = "Dotnet"
+            id = "Dotnet"
+            enabled = false
+        }
+        script {
+            name = "Meow"
+            id = "Meow"
+            enabled = false
+            scriptContent = "echo Meow"
+            param("teamcity.kubernetes.executor.container.image", "lolol")
+        }
+        script {
+            name = "banana"
+            id = "banana"
+            enabled = false
+            scriptContent = "echo banana"
+            dockerImage = "banana"
+        }
+    }
+    steps {
+        update<ScriptBuildStep>(4) {
+            clearConditions()
+            dockerImage = "ruby:2.4"
+        }
+    }
+
     requirements {
         add {
             exists("env.K8S_PAR")
