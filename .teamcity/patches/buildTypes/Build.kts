@@ -85,7 +85,7 @@ changeBuildType(RelativeId("Build")) {
     steps {
         update<ScriptBuildStep>(4) {
             clearConditions()
-            dockerImage = "python:alpine"
+            dockerImage = "python:trixie"
         }
     }
 
