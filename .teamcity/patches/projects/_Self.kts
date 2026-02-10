@@ -1,10 +1,8 @@
 package patches.projects
 
 import jetbrains.buildServer.configs.kotlin.*
-import jetbrains.buildServer.configs.kotlin.KubernetesCloudProfile
 import jetbrains.buildServer.configs.kotlin.Project
 import jetbrains.buildServer.configs.kotlin.kubernetesCloudImage
-import jetbrains.buildServer.configs.kotlin.kubernetesCloudProfile
 import jetbrains.buildServer.configs.kotlin.projectFeatures.KubernetesExecutor
 import jetbrains.buildServer.configs.kotlin.projectFeatures.kubernetesExecutor
 import jetbrains.buildServer.configs.kotlin.ui.*
@@ -38,29 +36,6 @@ changeProject(DslContext.projectId) {
         feature1.apply {
             templateName = "meow"
             param("enabled", "")
-        }
-        val feature2 = find<KubernetesCloudProfile> {
-            kubernetesCloudProfile {
-                id = "kube-5"
-                name = "K8S Test"
-                terminateAfterBuild = true
-                terminateIdleMinutes = 5
-                apiServerURL = "https://6c60846089ad8c095bed3b18ff6d84a0.gr7.eu-west-1.eks.amazonaws.com"
-                caCertData = "credentialsJSON:c77bc0a7-f461-4ca8-959b-ee5c8f6389b6"
-                namespace = "executor-pods"
-                authStrategy = token {
-                    token = "credentialsJSON:fa92592e-ec16-4543-add0-1cdd4de87e5e"
-                }
-            }
-        }
-        feature2.apply {
-            enabled = false
-            name = "K8S Test"
-            terminateAfterBuild = true
-            terminateIdleMinutes = 5
-            apiServerURL = "https://6c60846089ad8c095bed3b18ff6d84a0.gr7.eu-west-1.eks.amazonaws.com"
-            caCertData = "credentialsJSON:c77bc0a7-f461-4ca8-959b-ee5c8f6389b6"
-            namespace = "executor-pods"
         }
         add {
             kubernetesCloudImage {
