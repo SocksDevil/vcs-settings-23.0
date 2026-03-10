@@ -6,6 +6,7 @@ import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.Project
 import jetbrains.buildServer.configs.kotlin.kubernetesCloudImage
 import jetbrains.buildServer.configs.kotlin.kubernetesCloudProfile
+import jetbrains.buildServer.configs.kotlin.projectFeatures.bitbucketIssues
 import jetbrains.buildServer.configs.kotlin.projectFeatures.bitbucketServerConnection
 import jetbrains.buildServer.configs.kotlin.projectFeatures.cloudIntegration
 import jetbrains.buildServer.configs.kotlin.projectFeatures.dockerRegistry
@@ -205,6 +206,11 @@ object Project : Project({
                 dockerImage = "jetbrains/teamcity-agent:2025.07.3-linux"
             }
             param("imageInstanceLimit", "")
+        }
+        bitbucketIssues {
+            id = "PROJECT_EXT_47"
+            displayName = "meow"
+            repositoryURL = "https://teamcity-nightly.labs.intellij.net/buildConfiguration/TC_Trunk_DistParts_PluginAwsCore/52278"
         }
         kubernetesConnection {
             id = "PROJECT_EXT_5"
