@@ -185,9 +185,9 @@ object Project : Project({
             authStrategy = token {
                 token = "credentialsJSON:fa92592e-ec16-4543-add0-1cdd4de87e5e"
             }
-            param("proxyServer", "http://localhost:8090")
-            param("proxyPassword", "banana")
-            param("proxyLogin", "banana")
+            param("proxyServer", "http://34.53.237.245:8888")
+            param("proxyPassword", "9551024Margo")
+            param("proxyLogin", "dkrupkina")
         }
         kubernetesExecutor {
             id = "PROJECT_EXT_30"
