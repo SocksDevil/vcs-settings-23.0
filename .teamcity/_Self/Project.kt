@@ -186,7 +186,7 @@ object Project : Project({
                 token = "credentialsJSON:fa92592e-ec16-4543-add0-1cdd4de87e5e"
             }
             param("proxyServer", "http://34.53.237.245:8888")
-            param("proxyPassword", "9551024Margo")
+            param("secure:proxyPassword", "credentialsJSON:d3213daf-21d3-43cd-bef6-5e613d1564aa")
             param("proxyLogin", "dkrupkina")
         }
         kubernetesExecutor {
@@ -255,6 +255,7 @@ object Project : Project({
         hashiCorpVaultConnection {
             id = "hashicorpVaultConnection1"
             name = "HashiCorp Vault"
+            vaultId = ""
             url = "http://127.0.0.1:8200"
             authMethod = appRole {
                 roleId = "f3e75c6b-118b-48a1-97fc-6b8a69eb3bc3"
