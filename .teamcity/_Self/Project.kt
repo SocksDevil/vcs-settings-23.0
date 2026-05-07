@@ -185,7 +185,7 @@ object Project : Project({
             authStrategy = token {
                 token = "credentialsJSON:fa92592e-ec16-4543-add0-1cdd4de87e5e"
             }
-            param("proxyServer", "https://localhost:8090")
+            param("proxyServer", "http://localhost:8090")
             param("proxyPassword", "banana")
             param("proxyLogin", "banana")
         }
