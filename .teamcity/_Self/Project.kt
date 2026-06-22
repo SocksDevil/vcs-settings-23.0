@@ -261,7 +261,6 @@ object Project : Project({
         }
         kubernetesCloudProfile {
             id = "kube-5"
-            enabled = false
             name = "K8S Test"
             terminateAfterBuild = true
             terminateIdleMinutes = 5
